@@ -51,6 +51,7 @@ for u in list_2:
     if list_2.count(u) == 1:
         unique.append(u)
 print(unique)
+#то, что выводят принты, нужно только для нас, потом удалим
 
 start = []
 if
