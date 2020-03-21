@@ -1,12 +1,12 @@
 ''' Case #9 Генерация предложений
 
-Ануфриева Анастасия
-Журавлева Александра
+Ануфриева Анастасия (70%)
+Журавлева Александра (50%)
 
 '''
 import string
 import re
-
+import random
 file_name = input('Имя файла: ')
 sentences = int(input('Количество генерируемых предложений: '))
 
@@ -24,7 +24,6 @@ for i in lines:
     text.append(good_line)
 
 final_text1 = ' '.join(map(str, text))
-print(final_text1) # 2
 
 list = []
 
@@ -35,10 +34,8 @@ for m in final_text1:
         list.append(m)
 
 final_text2 = ''.join(map(str, list))
-print(final_text2) # 3
 
 final_text3 = re.sub(r'\s+(?=(?:[ ,.?!]))', r'', final_text2)
-print(final_text3) #4
 
 list_2 = []
 
@@ -54,7 +51,6 @@ for f in final_text4:
     else:
         list_2.append(f[:-1])
 
-print(list_2) #5
 
 
 
@@ -63,6 +59,9 @@ start_words = [] #7
 for word in list_2:
     if word.istitle():
         start_words.append(word)
-print(start_words)
 
-
+for i in range(sentences):
+    sentence_l = random.randint(5, 20)
+    for j in range(sentence_l):
+        sent = random.choice(list_2)
+        print(sent, end=' ')
