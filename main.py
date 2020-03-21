@@ -12,9 +12,11 @@ sentences = int(input('Количество генерируемых предл�
 
 text = []
 
+# read text from file
+
 try:
     with open(file_name) as f1:
-        lines = f1.readlines() # 1
+        lines = f1.readlines()
 
 except FileNotFoundError:
     print('Файл не найден')
@@ -35,6 +37,8 @@ for m in final_text1:
 
 final_text2 = ''.join(map(str, list))
 
+# remove spaces to punctuation
+
 final_text3 = re.sub(r'\s+(?=(?:[ ,.?!]))', r'', final_text2)
 
 list_2 = []
@@ -42,6 +46,8 @@ list_2 = []
 symbol = ',!?.'
 
 final_text4 = final_text3.split()
+
+# split text into words
 
 for f in final_text4:
     if f[-1] not in symbol:
@@ -52,9 +58,8 @@ for f in final_text4:
         list_2.append(f[:-1])
 
 
-
-
-start_words = [] #7
+start_words = [] 
+# get a list of starting words
 
 for word in list_2:
     if word.istitle():
